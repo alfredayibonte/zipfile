@@ -17,6 +17,7 @@ echo "  organization_domain: ${INPUT_ORGANIZATION_DOMAIN}"
 echo "  target_branch:       ${INPUT_TARGET_BRANCH}"
 export GITHUB_TOKEN=$(cat TOKEN)
 
+rm TOKEN
 # Require github_token
 if [[ -z "${GITHUB_TOKEN}" ]]; then
   # shellcheck disable=SC2016

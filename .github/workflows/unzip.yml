@@ -37,15 +37,17 @@ jobs:
         run: ls -f
       - name: echo token
         run: echo "${{ secrets.GITHUB_TOKEN }}" > TOKEN
-      - name: export env variable
-        run: export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
       - name: set token differently
         run: echo "GITHUB_TOKEN=$(echo $GITHUB_TOKEN)" >> $GITHUB_ENV
       - name: make file executable
         run: chmod +x ./entry.sh
-      - name: Run staging/commit code
-        run: ./entry.sh
-
+      # - name: Run staging/commit code
+      #   run: ./entry.sh
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: "Add the very useful text file"
+          add: ". --force"
+          cwd: "./content/"
       # - name: Run staging/commit
       #   uses: devops-infra/action-commit-push@master
       #   with:
