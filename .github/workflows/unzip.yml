@@ -31,6 +31,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Delete zip in subfolder
         run: rm ./**/*.zip
+      - name: view current directory for debugging.
+        run: pwd
+      - name: List items
+        run: ls -f
       - name: make file executable
         run: chmod +x ./entry.sh
       - name: Run staging/commit code
