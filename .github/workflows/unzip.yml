@@ -36,10 +36,10 @@ jobs:
       - name: List items
         run: ls -f
       - name: echo token
-        run: echo $GITHUB_TOKEN
+        run: echo "${{ secrets.GITHUB_TOKEN }}"
       - name: export env variable
-        # run: export GITHUB_TOKEN=$(echo $GITHUB_TOKEN)
-        run: echo "GITHUB_TOKEN=$(echo $GITHUB_TOKEN)" >> $GITHUB_ENV
+        run: export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+        # run: echo "GITHUB_TOKEN=$(echo $TOKEN)" >> $GITHUB_ENV
       - name: make file executable
         run: chmod +x ./entry.sh
       - name: Run staging/commit code
