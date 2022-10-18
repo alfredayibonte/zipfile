@@ -39,7 +39,8 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}"
       - name: export env variable
         run: export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
-        # run: echo "GITHUB_TOKEN=$(echo $TOKEN)" >> $GITHUB_ENV
+      - name: set token differently
+        run: echo "${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       - name: make file executable
         run: chmod +x ./entry.sh
       - name: Run staging/commit code
