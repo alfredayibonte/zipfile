@@ -31,29 +31,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Delete zip in subfolder
         run: rm ./**/*.zip
-      - name: view current directory for debugging.
-        run: pwd
-      - name: List items
-        run: ls -f
-      - name: echo token
-        run: echo "${{ secrets.GITHUB_TOKEN }}" > TOKEN
-      - name: set token differently
-        run: echo "GITHUB_TOKEN=$(echo $GITHUB_TOKEN)" >> $GITHUB_ENV
-      - name: make file executable
-        run: chmod +x ./entry.sh
-      # - name: Run staging/commit code
-      #   run: ./entry.sh
       - uses: EndBug/add-and-commit@v9
         with:
           message: "Add the very useful text file"
           add: ". --force"
           cwd: "./content/"
-      # - name: Run staging/commit
-      #   uses: devops-infra/action-commit-push@master
-      #   with:
-      #     github_token: "${{ secrets.GITHUB_TOKEN }}"
-      #     add_timestamp: true
-      #     commit_prefix: "[AUTO]"
-      #     commit_message: "Automatic commit"
-      #     force: false
-      #     target_branch: update/version
