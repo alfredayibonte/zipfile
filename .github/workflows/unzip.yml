@@ -38,7 +38,7 @@ jobs:
       - name: echo token
         run: echo $GITHUB_TOKEN
       - name: export env variable
-        run: export GITHUB_TOKEN=$(echo $TOKEN)
+        run: export GITHUB_TOKEN=$(echo $GITHUB_TOKEN)
         # run: echo "GITHUB_TOKEN=$(echo $TOKEN)" >> $GITHUB_ENV
       - name: make file executable
         run: chmod +x ./entry.sh
