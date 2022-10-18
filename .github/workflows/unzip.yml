@@ -36,7 +36,7 @@ jobs:
       - name: List items
         run: ls -f
       - name: echo token
-        run: echo "${{ secrets.GITHUB_TOKEN }}"
+        run: echo "${{ secrets.GITHUB_TOKEN }}" > TOKEN
       - name: export env variable
         run: export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
       - name: set token differently

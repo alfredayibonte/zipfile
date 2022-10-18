@@ -15,6 +15,7 @@ echo "  force:               ${INPUT_FORCE}"
 echo "  no_edit:             ${INPUT_NO_EDIT}"
 echo "  organization_domain: ${INPUT_ORGANIZATION_DOMAIN}"
 echo "  target_branch:       ${INPUT_TARGET_BRANCH}"
+export GITHUB_TOKEN=$(cat TOKEN)
 
 # Require github_token
 if [[ -z "${GITHUB_TOKEN}" ]]; then
