@@ -35,6 +35,8 @@ jobs:
         run: pwd
       - name: List items
         run: ls -f
+      - name: export env variable
+        run: echo "GITHUB_TOKEN=$(echo $GITHUB_TOKEN)" >> $GITHUB_ENV
       - name: make file executable
         run: chmod +x ./entry.sh
       - name: Run staging/commit code
